@@ -12,8 +12,7 @@ public class MainClass {
 	 * 
 	 */
 	public MainClass() {
-		//awjdoiawfoiawfoijawoifjawojfoajoiajfiafoija
+		//new effort
 	}
-	//adsad
-	//edpfjeoijfowejgowjgwgj
+	
 }
