@@ -35,7 +35,6 @@ public class FileReader {
 		while(scaner2.hasNext()){
 			strBuff2.append(scaner2.next());
 		}
-		strBuff2.reverse();
 		filesStringBox.add(strBuff1);
 		filesStringBox.add(strBuff2);
 		
