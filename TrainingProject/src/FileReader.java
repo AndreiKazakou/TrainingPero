@@ -32,7 +32,7 @@ public class FileReader {
 		while(scaner1.hasNext()){
 			strBuff1.append(scaner1.next());
 		}
-		while(scaner2.hasNext()){
+		while(scaner2.hasNext()){  
 			strBuff2.append(scaner2.next());
 		}
 		strBuff2.reverse();
