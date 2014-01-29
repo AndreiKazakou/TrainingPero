@@ -1,1 +1,1 @@
-Hellow 
+Here is a WikiWord followed by AnotherWikiWord, then YetAnotherWikiWord.
