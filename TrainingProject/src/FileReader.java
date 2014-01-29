@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -69,10 +70,12 @@ public class FileReader {
 
 	public String regXpFile(String text) throws IOException{
 
-		Pattern pattern = Pattern.compile(regExp);
+		Pattern pattern = Pattern.compile("(\\w+)@(\\w+\\.)(\\w+)(\\.\\w+)*");
 		Matcher matcher = pattern.matcher(text);
 		StringBuffer strBuild= new StringBuffer();
-		matcher.appendTail(strBuild);
+		while (matcher.find()) {
+			strBuild.append(" "+matcher.group());
+		}
 		return strBuild.toString();
 		
 	}
