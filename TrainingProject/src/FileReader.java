@@ -70,7 +70,7 @@ public class FileReader {
 
 	public String regXpFile(String text) throws IOException{
 
-		Pattern pattern = Pattern.compile("(\\w+)@(\\w+\\.)(\\w+)(\\.\\w+)*");
+		Pattern pattern = Pattern.compile(regExp);
 		Matcher matcher = pattern.matcher(text);
 		StringBuffer strBuild= new StringBuffer();
 		while (matcher.find()) {
