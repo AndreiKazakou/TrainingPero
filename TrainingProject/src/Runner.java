@@ -15,7 +15,7 @@ public class Runner{
 		FileReader fileReader= new FileReader(args[0], args[1], args[2]);
 		try {
 				fileReader.witeOutPutFile(fileReader.concatFiles(fileReader.readFiles()));
-				//fileReader.cleanFile("C:/Users/andrei_kazakou/git/TrainingRepo/TrainingProject/src/outPutFile.txt");
+				//
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
