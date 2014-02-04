@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="task3.xsl"?>
+<atlas-document id="io2156774sl400093197" required-dtd-version="04.24.00"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="src/schema.xsd">
+	<document>
+		<heading flow-type="paragraph">CASE 2/2013</heading>
+		<level id="12" level-type="flush">
+			<para align="left">2013 ATC ¶1-051</para>
+			<para align="left">
+				<bold>Administrative Appeals Tribunal, Melbourne,</bold>
+			</para>
+			<para align="left">
+				<bold>15 February 2013</bold>
+			</para>
+			<para align="left"/>
+			<para align="left">
+				<italic>Capital gains tax — CGT event A1 — Disposal of CGT asset — Small business exemption — Small business entity — Maximum net asset value test — Heads of Agreement — Formal contract of sale — Date of disposal of CGT asset — Income Tax Assessment Act 1997, s 104-5, 104-10, 152-15 .</italic>
+			</para>
+			<level id="atcd17e6298" level-type="flush">
+				<h1 flow-type="paragraph">
+					<bold>DISPOSAL OF A CGT ASSET – GENERALLY</bold>
+				</h1>
+				<para align="left"/>
+				<para align="left">11. Section <anchor id="io2154933sl399674085"/>104-10 of the ITAA 1997 provides the following: </para>
+				<block-quote add-quote-marks="no">
+					<para/>
+					<para>
+						<italic>
+							<bold>104-10 Disposal of a CGT asset: CGT event A1</bold>
+						</italic>
+					</para>
+					<unordered-list token="none">
+						<list-item>
+							<para>
+								<italic>(1) CGT event A1 happens if you *dispose of a *CGT asset.</italic>
+							</para>
+						</list-item>
+						<list-item>
+							<para>
+								<italic>(2) You dispose of a *CGT asset if a change of ownership occurs from you to another entity, whether because of some act or event or by operation of law. However, a change of ownership does not occur if you stop being the legal owner of the asset but continue to be its beneficial owner.</italic>
+								<break/>
+							</para>
+							<note type="cch-comment">
+								<h1/>
+								<para/>
+								<para>
+									<italic>Note: A change in the trustee of a trust does not constitute a change in the entity that is the trustee of the trust (see subsection 960-100(2)). This means that CGT event A1 will not happen merely because of a change in the trustee.</italic>
+								</para>
+								<para/>
+							</note>
+							<para/>
+						</list-item>
+						<list-item>
+							<para>
+								<italic>(3) The time of the event is:</italic>
+							</para>
+							<unordered-list token="none">
+								<list-item>
+									<para>
+										<italic>(a) when you enter into the contract for the *disposal; or</italic>
+									</para>
+								</list-item>
+								<list-item>
+									<para>
+										<italic>(b) if there is no contract — when the change of ownership occurs.</italic>
+										<break/>
+										<italic>…</italic>
+										<break/>
+									</para>
+									<note type="cch-comment">
+										<para>
+											<italic>Note 1: If the contract falls through before completion, this event does not happen because no change in ownership occurs.</italic>
+										</para>
+									</note>
+									<para>
+										<break/>
+									</para>
+									<note type="cch-comment">
+										<h1/>
+										<para/>
+										<para>
+											<italic>Note 2: If the asset was compulsorily acquired from you: see subsection (6).</italic>
+										</para>
+										<para/>
+									</note>
+									<para/>
+								</list-item>
+							</unordered-list>
+							<para/>
+						</list-item>
+						<list-item>
+							<para>
+								<italic>(4) You make a capital gain if the *capital proceeds from the disposal are more than the asset’s *cost base. You make a capital loss if those capital proceeds are less than the asset’s *reduced cost base….</italic>
+							</para>
+						</list-item>
+					</unordered-list>
+					<para/>
+					<para/>
+				</block-quote>
+				<para align="left"/>
+				<para align="left"/>
+			</level>
+		</level>
+	</document>
+</atlas-document>

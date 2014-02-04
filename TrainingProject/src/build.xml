@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<project name="TrainingProject" basedir="." default="run">
+
+
+	<target name="createDefPropFile">
+		<echo message="---------------------------CREATED build.properties ------------------------------" />
+		<propertyfile file="build.properties" comment="Properties file">
+			<entry  key="Downloadedlib" value="project/lib/download"/>
+			<entry  key="lib" value="project/lib"/>
+			<entry  key="buildSrc" value="project/build/classes"/>
+		</propertyfile>
+	</target>
+
+
+	<target name="print_menu">
+		<echo message="------------------------------MENU------------------------------------------------" />
+		<echo message="1. Download branch from GitHub"/> 
+		<echo message="2. Build branch"/> 
+		<echo message="3. Compile branch"/> 
+		<echo message="4. Clean touched branch"/>
+		<echo message="5. Abort build"/>
+	</target>
+
+
+	<target name="init" depends="createDefPropFile">
+		<echo message="------------------------------MAKE A CHOICE---------------------------------------" />
+		<echo message="y= continue" />
+		<echo message="n= abort" />
+		<input message="Rewrite build.properties or run with default values:" validargs="y,n" addproperty="do.abort_n"/>	
+		<condition property="do.abort">
+			<equals arg1="n" arg2="${do.abort_n}"/>
+		</condition>
+		<fail if="do.abort">BUILD ABORTED BY USER!!!.</fail>
+		<property file="build.properties"/>
+		<mkdir dir="${buildSrc}"/>
+		<mkdir dir="${lib}"/>
+		<mkdir dir="${Downloadedlib}"/>
+		<antcall target="libs-load"/>
+		<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${lib}/ant-contrib/ant-contrib-1.0b3.jar"/>
+	</target>
+
+	<target name="libs-load">
+		<echo message="------------------------------DOWNLOAD LIBS...------------------------------------" />
+		<get src="http://sourceforge.net/projects/ant-contrib/files/ant-contrib/1.0b3/ant-contrib-1.0b3-bin.zip" dest="${Downloadedlib}"/>
+		<unzip dest="${lib}">
+			<fileset dir="${Downloadedlib}">
+				<include name="*.zip"/>
+			</fileset>
+		</unzip>
+	</target>
+
+	<target name="choice_menu_number">
+		<var name="do.menu_choice" unset="true"/> 
+		<echo message="------------------------------MAKE A CHOICE---------------------------------------" />	
+		<input validargs="1,2,3,4,5"  addproperty="do.menu_choice"/>		
+		<switch value="${do.menu_choice}">
+			<case value="1">
+				 <exec executable="cmd">
+					<arg value="/c"/>
+					<arg value="$ git clone https://github.com/AndreiKazakou/TrainingPero.git cloneRepo"/>
+					<arg value="$ git branch"/>
+			     </exec>
+				 <echo message="------------------------------MAKE A CHOICE---------------------------------------" />
+				 <echo message="Please choose branch:" />
+				 <input  addproperty="choose.branch"/>
+				 <exec executable="cmd">
+					<arg value="/c"/>
+					<arg value="$ git checkout ${choose.branch}"/>
+				</exec>
+				<var name="isCircleMenu" value="false" unset="true"/> 
+				<antcall target="excute"/>
+			</case>
+			<case value="2">
+				<echo message="The value of property foo is 2" />
+				<var name="isCircleMenu" value="false" unset="true"/> 
+				<antcall target="excute"/>
+
+			</case>
+			<case value="3">
+				<echo message="The value of property foo is 3" />
+				<var name="isCircleMenu" value="false" unset="true"/> 
+				<antcall target="excute"/>
+
+			</case>
+			<case value="4">
+				<echo message="The value of property foo is 4" />	
+				<var name="isCircleMenu" value="false" unset="true"/> 
+				<antcall target="excute"/>
+			</case>
+			<case value="5">
+				<fail>----!!!---->Aborted by user.</fail>
+		</case>
+		<default>
+			<echo message="The value of property foo is not sensible" />
+		</default>
+	</switch>
+</target>	
+
+
+
+<target name="run" depends="init">
+	<antcall target="excute"/>
+</target>
+
+<target name="excute">
+	<antcall target="print_menu"/> 
+	<antcall target="choice_menu_number"/>		
+</target>
+
+</project>

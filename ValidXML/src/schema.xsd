@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+	<xs:simpleType name="Bold">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Break">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:complexType name="Heading" mixed="true">
+		<xs:attribute name="flow-type" type="xs:string" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="Anchor">
+		<xs:attribute name="id" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="H1">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="bold" type="Bold" />
+		</xs:choice>
+		<xs:attribute name="flow-type" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="Italic" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="bold" type="Bold" />
+		</xs:choice>
+		<xs:attribute name="flow-type" type="xs:string"/>
+	</xs:complexType>
+
+
+	<xs:complexType name="Para" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="italic" type="Italic" />
+			<xs:element name="break" type="Break" />
+			<xs:element name="bold" type="Bold" />
+			<xs:element name="anchor" type="Anchor" />
+		</xs:choice>
+		<xs:attribute name="align" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="AtlasDocument" mixed="true">
+		<xs:all>
+			<xs:element name="document" type="Document" />
+		</xs:all>
+		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="required-dtd-version" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="Document">
+		<xs:all>
+			<xs:element name="heading" type="Heading" />
+			<xs:element name="level" type="Level" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="Level" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="para" type="Para" />
+			<xs:element name="level" type="Level" />
+			<xs:element name="h1" type="H1" />
+			<xs:element name="block-quote" type="BlockQuote" />
+			
+		</xs:choice>
+		<xs:attribute name="id" type="xs:string"  use="required" />
+		<xs:attribute name="level-type" type="xs:string"  use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="BlockQuote">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="para" type="Para" />
+			<xs:element name="unordered-list" type="UnorderedList" />
+		</xs:choice>
+		<xs:attribute name="add-quote-marks" type="xs:string"  use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="UnorderedList">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="para" type="Para" />
+			<xs:element name="list-item" type="ListItem" />
+		</xs:choice>
+		<xs:attribute name="token" type="xs:string"  use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="ListItem">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="para" type="Para" />
+			<xs:element name="note" type="Note" />
+			<xs:element name="unordered-list" type="UnorderedList" />
+		</xs:choice>
+		<xs:attribute name="token" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="Note">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="para" type="Para" />
+			<xs:element name="h1" type="H1" />
+		</xs:choice>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:element name="atlas-document" type="AtlasDocument"/>
+	
+</xs:schema>
